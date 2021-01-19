@@ -59,4 +59,26 @@ public class Utility {
     //Close file after we are done
     return strLong;
   }
+  public static int[] tenRun(int[] nums){
+    
+    //Variables
+    int intCount;
+    int intMulti = 1;
+
+    for(intCount = 0; intCount < nums.length; intCount++){
+      //if intCount is less then length of array then run loop
+      if(nums[intCount] % 10 == 0){
+        intMulti = nums[intCount];
+        //if nums[intCount] divided by 10 gives a remainder of 0 then it is a multiple of 10, change intMulti into a multiple of ten   
+      }else if(nums[intCount] % 10 !=0 && intMulti !=1){
+        nums[intCount] = intMulti;
+        //if nums[intCount] divided by 10 doesn't equal 1 and intMulti doesn't equal 1, then change the number to a multiple of ten
+      }else{
+        nums[intCount] = nums[intCount];
+        //if none of the above conditions are meant make nums[intCount] = nums[intCount]
+      }
+    }
+  return nums;
+  }
+
 }
