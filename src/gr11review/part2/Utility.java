@@ -2,7 +2,18 @@ package gr11review.part2;
 import java.io.*;
 import java.util.*;
 
+/**
+*Java file that contains all the methods 
+*@author: S. Umaipalan
+*/
 public class Utility {
+
+  /**
+  * @param str
+  * @return Zip
+  * @author: S. Umaipalan
+  */
+
   public static String zipZap(String str){
     //Variables
 
@@ -31,6 +42,12 @@ public class Utility {
     } 
     return Zip;
   }
+
+  /**
+  * @param filenametxt
+  * @return strLong
+  * @author: S. Umaipalan
+  */
   public static String longestWord(String filenametxt)throws IOException{
 
     BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
@@ -58,6 +75,12 @@ public class Utility {
     filename.close();
     //Close file after we are done
     return strLong;
+  
+  /**
+  * @param nums
+  * @return nums
+  * @author: S. Umaipalan
+  */
   }
   public static int[] tenRun(int[] nums){
     
@@ -81,4 +104,41 @@ public class Utility {
   return nums;
   }
 
+  /**
+  * @param inner
+  * @param outter
+  * @return true/false
+  * @author: S. Umaipalan
+  */
+  public static boolean linearIn(int[] outer, int[] inner){
+  
+    //Variables 
+    int intNum = 0;
+    int intCount = 0;
+    int intCount2 = 0;
+
+    if(inner.length == 0){
+      //return true if all numbers are only in outer array 
+    }
+    while(intCount < outer.length){
+      intCount++;
+      //if intCount is less then the length of outer array, run loop
+
+      if(outer[intCount] == inner[intCount2]){
+        intNum++;
+        intCount2++;
+        //if outer array is equal to inner array add a count intNum and intCount1
+    
+      }else if(outer[intCount] > inner[intCount2]){
+        return false;
+        //else if, outter array is has more numbers then inner array, return false
+      }else if(intNum == inner.length){
+        return true;
+        //else if, they have the same number as the length of inner array, then return true 
+      }
+    }
+    return false;
+  }
+
 }
+
