@@ -20,5 +20,6 @@ public class Main{
     int[] outer = {2, 4};
     System.out.println(Utility.linearIn(outer, inner));
 
+    Utility.pascalTri(4, 5);
   }
 }

@@ -140,5 +140,50 @@ public class Utility {
     return false;
   }
 
+  /**
+  * @param i
+  * @param j
+  * @author: S. Umaipalan
+  */
+  public static void pascalTri(int i, int j) throws IOException{
+    
+    PrintWriter InputPascal = new PrintWriter(new FileWriter("src/grllreview/part2/pascalOut.txt"));
+    //Lets me output onto pascalOut.txt
+
+    //Variables
+    int intCountA = 0;
+    int intCountB = 0;
+    int intPascal[][] = new int[i][j];
+
+    while(intCountA < i){
+      intPascal[intCountA][0] = 1;
+      intCountA ++;
+      //Makes the first row equal to 1
+    }
+
+    while(intCountB < j){
+      intPascal[0][intCountB] = 1;
+      intCountB++;
+      //makes the first column equal to 1
+    }
+    for(intCountA = 1; intCountA < i; intCountA++){
+      for(intCountB = 1; intCountB < j; intCountB++){
+        intPascal[intCountA][intCountB] = intPascal[intCountA -  1][intCountB] + intPascal[intCountA][intCountB - 1];
+        //Using the values from the previous columns and rows to get the new values 
+      }
+    }
+    
+    for(intCountA = 0; intCountA < i; intCountA++ ){
+      for(intCountB = 0; intCountB < j; intCountB++){
+        InputPascal.print(intPascal[intCountA][intCountB] + ", ");
+        if(intCountB == j - 1){
+          InputPascal.println(" ");
+        //Prints values into pascalOut.txt
+        }
+      }
+    }
+  InputPascal.close();
+  //closes text file 
+  }
 }
 
