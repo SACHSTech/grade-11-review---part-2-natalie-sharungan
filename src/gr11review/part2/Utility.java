@@ -213,4 +213,34 @@ public class Utility {
     }
     return intTotal;
   }
+  // @author Natalie Yung
+  public static String alphaWord(String filenametxt)throws IOException{
+    //initialize variables
+    String strLine = "";
+    String strFirst = "";
+    String strFinal = "";
+    int intCompare = 0;
+    BufferedReader File = new BufferedReader(new FileReader(filenametxt));
+
+    strLine = File.readLine();
+    strFinal = File.readLine();
+
+    if(strLine == null){
+      File.close();
+      return "";
+    }
+    //compare each word line by line until the end of the file
+    if(strLine != null){
+      while(strLine != null){
+        intCompare = strFinal.compareToIgnoreCase(strLine);
+        if(intCompare > 0){
+          strFinal = strLine;
+        }
+      strLine = File.readLine();
+      }
+    }
+    File.close();
+    return strFinal;
+  }
+  
   } 
