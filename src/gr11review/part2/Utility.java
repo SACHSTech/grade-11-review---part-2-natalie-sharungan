@@ -185,5 +185,32 @@ public class Utility {
   InputPascal.close();
   //closes text file 
   }
-}
 
+  // @author Natalie Yung
+  public static int sumNumbers(String str)throws IOException{ 
+    //initialize variables
+    int intStringLength = 0;
+    int intCount;
+    char charCharacter;
+    int intTotal = 0;
+    String strString = "";
+    intStringLength = str.length();
+
+    //loop checks every character to see if it is a digit or not then adds onto 
+    for(intCount=0; intCount<intStringLength; intCount++){
+      charCharacter = str.charAt(intCount);
+
+      if(Character.isDigit(charCharacter)){
+        strString = strString+charCharacter;
+
+      }else if(!strString.equals("")){
+        intTotal = intTotal + Integer.parseInt(strString);
+        strString = "";
+      }
+    }
+    if(!strString.equals("")){
+      intTotal = intTotal+ Integer.parseInt(strString);
+    }
+    return intTotal;
+  }
+  } 
