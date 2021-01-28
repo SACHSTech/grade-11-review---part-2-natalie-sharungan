@@ -290,5 +290,23 @@ public static boolean canBalance(int[] nums)throws IOException{
     }
     return false;
   }
-
+  public static void diagonal(int n)throws IOException{
+    int intCount = 0;
+    int intCount1 = 0;
+    int[][] intDiagonal;
+    intDiagonal = new int[n][n];
+    //loop goes through every row of the array intDiagonal
+    for(intCount = 0; intCount < n; intCount++){
+      //loop that goes through every collumn of the array intDiagonal
+      for(intCount1 = 0; intCount1 <n; intCount1++){
+        if(intCount1 < (n - intCount - 1)){
+          intDiagonal[intCount][intCount1] = 0;
+        }else if(intCount1 == (n - intCount - 1)){
+          intDiagonal[intCount][intCount1] = 1;
+        }else if(intCount1 > (n - intCount - 1)){
+          intDiagonal[intCount][intCount1] = 2;
+        }
+      }
+    }
+  }
 }
