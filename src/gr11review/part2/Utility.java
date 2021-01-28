@@ -188,7 +188,6 @@ public class Utility {
 
   // @author Natalie Yung
   public static int sumNumbers(String str)throws IOException{ 
-    //initialize variables
     int intStringLength = 0;
     int intCount;
     char charCharacter;
@@ -215,7 +214,6 @@ public class Utility {
   }
   // @author Natalie Yung
   public static String alphaWord(String filenametxt)throws IOException{
-    //initialize variables
     String strLine = "";
     String strFirst = "";
     String strFinal = "";
@@ -224,7 +222,7 @@ public class Utility {
 
     strLine = File.readLine();
     strFinal = File.readLine();
-
+ 
     if(strLine == null){
       File.close();
       return "";
@@ -242,5 +240,55 @@ public class Utility {
     File.close();
     return strFinal;
   }
-  
-  } 
+  //@author Natalie Yung
+public static int[] notAlone(int[] nums, int value)throws IOException{
+    int intCount = 1;
+    int intLength = 0;
+    int intLeftnums = 0;
+    int intRightnums = 0;
+    intLength = nums.length;
+    //loop that runs until the end of array and checks to see if a value is 'alone'
+    while(intCount < intLength){
+      intLeftnums = nums[intCount - 1];
+      intRightnums = nums[intCount + 1];
+      //if a value is alone determine which value to the left or right is larger and replace the alone value with it
+      if(nums[intCount] == value){
+        if(intLeftnums != nums[intCount] && intRightnums != nums[intCount]){
+          nums[intCount] = Math.max(intLeftnums, intRightnums);
+        }
+      }
+      intCount = intCount +1;
+    }
+  return nums;
+}
+//@author Natalie Yung
+public static boolean canBalance(int[] nums)throws IOException{
+    int intCount = 0;
+    int intLength = 0;
+    int intSum = 0;
+    int intHalf = 0;
+    int intCounter = 0;
+    intLength = nums.length;
+    //get the sum of all numbers to determine a halfway
+    while(intCount < intLength){
+      intSum = intSum + nums[intCount];
+      intCount = intCount + 1;
+    }
+    intHalf = intSum/2;
+    intCount = 0;
+    //checks through each value in the array and adds them up 1 at a time. If the counter passes the halfway then there is no way that it can be split in half
+    while(intCount < intLength){
+      intCounter = intCounter + nums[intCount];
+      
+      if(intCounter == intHalf){
+        return true;
+      }
+      
+      if(intCounter > intHalf){
+        return false;
+      }
+    }
+    return false;
+  }
+
+}
